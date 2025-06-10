@@ -88,3 +88,16 @@ th, td {
 th {
     background-color: #f2f2f2;
 }
+
+
+/* Example from a common base.css for responsiveness */
+@media screen and (max-width: 768px) { /* Applies styles when screen width is 768px or less */
+    .works_on_smartphone main {
+        flex-direction: column; /* Stacks article and aside vertically on smaller screens */
+    }
+    .works_on_smartphone article,
+    .works_on_smartphone aside {
+        flex: auto; /* They take full width */
+        width: 100%;
+    }
+}
