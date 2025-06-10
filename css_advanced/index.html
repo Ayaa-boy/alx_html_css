@@ -1,157 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-     <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechCon 2024 - Shaping the Future of Tech</title>
-    <link rel="stylesheet" href="styles.css"> <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>SmileSchool</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap" rel="stylesheet">
     </head>
 <body>
-    <header class="main-header">
-        <div class="container header-content">
+    <header>
+        <div class="header-container">
             <div class="logo">
-                <a href="index.html">
-                    <img src="assets/images/techcon-logo.png" alt="TechCon 2024 Logo">
-                    </a>
+                <img src="assets/images/smiley_logo.png" alt="SmileSchool Logo">
             </div>
-            <nav class="main-nav">
+            <nav>
                 <ul>
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#speakers">Speakers</a></li>
-                    <li><a href="#schedule">Schedule</a></li>
-                    <li><a href="#register">Register</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#">COURSES</a></li>
+                    <li><a href="#">PRICING</a></li>
+                    <li><a href="#">LOGIN</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main>
-        <section id="hero" class="hero-section">
-            <div class="container hero-content">
-                <h1>TechCon 2024: Innovate. Inspire. Connect.</h1>
-                <p>Join us for the premier technology conference of the year, bringing together industry leaders, innovators, and enthusiasts from around the globe.</p>
-                <a href="#register" class="btn btn-primary">Secure Your Spot Now!</a>
-            </div>
-        </section>
-
-        <section id="about" class="about-section">
-            <div class="container">
-                <h2>About TechCon</h2>
-                <p>TechCon is dedicated to exploring the forefront of technological advancements and their impact on society. Our mission is to foster collaboration, ignite creativity, and provide a platform for insightful discussions across various tech domains including AI, cybersecurity, cloud computing, and sustainable technology.</p>
-                <div class="about-grid">
-                    <article class="about-item">
-                        <h3>Our Vision</h3>
-                        <p>To be the leading global platform for technology convergence, empowering individuals and businesses to drive future innovations.</p>
-                    </article>
-                    <article class="about-item">
-                        <h3>Key Themes</h3>
-                        <ul>
-                            <li>Artificial Intelligence & Machine Learning</li>
-                            <li>Cybersecurity & Data Privacy</li>
-                            <li>Cloud Native & DevOps</li>
-                            <li>Sustainable Tech & Green Computing</li>
-                        </ul>
-                    </article>
-                    <article class="about-item">
-                        <h3>Why Attend?</h3>
-                        <p>Gain unparalleled insights, network with peers and experts, and discover tools that will shape tomorrow's technology landscape.</p>
-                    </article>
+        <section class="hero-section">
+            <div class="hero-background-overlay"></div> <div class="hero-content">
+                <h1>Get schooled</h1>
+                <div class="hero-smiles-options">
+                    <span>SMILES</span>
+                    <span>GRIN</span>
+                    <span>LAUGH</span>
                 </div>
+                <button class="register-button">REGISTER FOR FREE</button>
             </div>
-        </section>
-
-        <section id="speakers" class="speakers-section">
-            <div class="container">
-                <h2>Meet Our Esteemed Speakers</h2>
-                <div class="speaker-grid">
-                    <div class="speaker-card">
-                        <img src="assets/images/speaker-1.jpg" alt="Photo of Dr. Evelyn Reed">
-                        <h3>Dr. Evelyn Reed</h3>
-                        <p class="speaker-title">AI Ethicist, FutureTech Innovations</p>
-                        <p>Specializing in responsible AI development and ethical implications of machine learning.</p>
-                    </div>
-                    <div class="speaker-card">
-                        <img src="assets/images/speaker-2.jpg" alt="Photo of Mr. David Kim">
-                        <h3>Mr. David Kim</h3>
-                        <p class="speaker-title">Head of Cybersecurity, GlobalSecure Inc.</p>
-                        <p>Expert in advanced persistent threats and enterprise-level security solutions.</p>
-                    </div>
-                    <div class="speaker-card">
-                        <img src="assets/images/speaker-3.jpg" alt="Photo of Ms. Sophia Lopez">
-                        <h3>Ms. Sophia Lopez</h3>
-                        <p class="speaker-title">Cloud Solutions Architect, CloudWorks</p>
-                        <p>Pioneering scalable cloud infrastructures and serverless computing.</p>
-                    </div>
-                    <div class="speaker-card">
-                        <img src="assets/images/speaker-4.jpg" alt="Photo of Mr. Alex Johnson">
-                        <h3>Mr. Alex Johnson</h3>
-                        <p class="speaker-title">Sustainable Tech Advocate, EcoFuture</p>
-                        <p>Focuses on integrating green technologies into modern data centers.</p>
-                    </div>
-                    </div>
-            </div>
-        </section>
-
-        <section id="schedule" class="schedule-section">
-            <div class="container">
-                <h2>Conference Schedule Highlights</h2>
-                <div class="schedule-grid">
-                    <div class="day-schedule">
-                        <h3>Day 1: Innovation & Discovery</h3>
-                        <ul>
-                            <li><strong>9:00 AM - 10:00 AM:</strong> Keynote - The AI Revolution</li>
-                            <li><strong>10:30 AM - 11:30 AM:</strong> Panel: Cybersecurity in a Connected World</li>
-                            <li><strong>1:00 PM - 2:00 PM:</strong> Workshop: Getting Started with Cloud Native</li>
-                            <li><strong>3:00 PM - 4:00 PM:</strong> Session: Quantum Computing Basics</li>
-                        </ul>
-                    </div>
-                    <div class="day-schedule">
-                        <h3>Day 2: Deep Dive & Future Trends</h3>
-                        <ul>
-                            <li><strong>9:00 AM - 10:00 AM:</strong> Keynote - Future of Blockchain</li>
-                            <li><strong>10:30 AM - 11:30 AM:</strong> Workshop: Ethical AI Design Principles</li>
-                            <li><strong>1:00 PM - 2:00 PM:</strong> Panel: Web3 and the Metaverse</li>
-                            <li><strong>3:00 PM - 4:00 PM:</strong> Session: The Green Data Center</li>
-                        </ul>
-                    </div>
+            <p class="learn-pros-text">Learn from the pros</p>
+            <div class="hero-profiles">
+                <div class="profile-card">
+                    <img src="assets/images/pro_1.png" alt="Profile of Phillip Massey">
+                    <h3>Phillip Massey</h3>
+                    <p class="sub-text">&laquo; Smile of the year &raquo;</p>
+                    <p class="sub-text">2018 - 2019</p>
                 </div>
-                <p class="text-center"><a href="schedule.html" class="btn btn-secondary">View Full Schedule</a></p>
-            </div>
-        </section>
-
-        <section id="register" class="register-section">
-            <div class="container">
-                <h2>Don't Miss Out! Register Now!</h2>
-                <p>Limited spots available. Secure your attendance at TechCon 2024 and be part of the future of technology.</p>
-                <a href="register.html" class="btn btn-tertiary">Register for TechCon 2024</a>
-            </div>
-        </section>
-
-        <section id="contact" class="contact-section">
-            <div class="container">
-                <h2>Get in Touch</h2>
-                <p>Have questions? Reach out to us!</p>
-                <div class="contact-info">
-                    <p>Email: <a href="mailto:info@techcon2024.com">info@techcon2024.com</a></p>
-                    <p>Phone: +1 (123) 456-7890</p>
-                    <p>Location: Grand Conference Center, Tech City</p>
+                <div class="profile-card">
+                    <img src="assets/images/profile_2.jpg" alt="Profile of Nannie Lawrence">
+                    <h3>Nannie Lawrence</h3>
+                    <p class="sub-text">&laquo; Best &lt;little smile&gt; &raquo;</p>
+                    <p class="sub-text">2017</p>
                 </div>
-                <div class="social-media">
-                    <a href="https://twitter.com/techcon" target="_blank" aria-label="TechCon on Twitter">Twitter</a>
-                    <a href="https://linkedin.com/company/techcon" target="_blank" aria-label="TechCon on LinkedIn">LinkedIn</a>
-                    <a href="https://facebook.com/techcon" target="_blank" aria-label="TechCon on Facebook">Facebook</a>
+                <div class="profile-card">
+                    <img src="assets/images/7.png" alt="Profile of Bruce Walters">
+                    <h3>Bruce Walters</h3>
+                    <p class="sub-text">&laquo; Best &lt;Friend Smile&gt; &raquo;</p>
+                    <p class="sub-text">live performance 2019</p>
+                </div>
+                <div class="profile-card">
+                    <img src="assets/images/8.png" alt="Profile of Henry Hughes">
+                    <h3>Henry Hughes</h3>
+                    <p class="sub-text">&laquo; 24h smiles &raquo; winner</p>
+                    <p class="sub-text">2016 - 2019</p>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="main-footer">
-        <div class="container">
-            <p>&copy; 2024 TechCon. All rights reserved.</p>
-            <p>Designed with passion by Nana Kwasi Pratt</p>
-        </div>
+    <footer>
+        <p>&copy; SmileSchool 2024</p>
     </footer>
 </body>
 </html>
