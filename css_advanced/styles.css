@@ -1,0 +1,599 @@
+/* Custom Fonts */
+/* If you have the Spin Cycle OT font files, place them in css_advanced/assets/fonts/ */
+/* and uncomment/adjust the @font-face rule. */
+/* @font-face {
+    font-family: 'Spin Cycle OT';
+    src: url('assets/fonts/Spin-Cycle-OT.woff2') format('woff2'),
+         url('assets/fonts/Spin-Cycle-OT.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+} */
+
+/* Variables for easy color management (replace with exact Figma colors) */
+:root {
+    --primary-text-color: #FFFFFF;
+    --secondary-purple: #D368FF; /* For button and "Learn from the pros" */
+    --dark-bg-color: #000000; /* For profile section background */
+    --light-grey-text: rgba(255, 255, 255, 0.7); /* For smaller text in profiles */
+    --header-link-color: #FFFFFF;
+}
+
+/* Universal box-sizing and basic reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: var(--primary-text-color);
+    line-height: 1.6;
+    background-color: var(--dark-bg-color); /* Main background color */
+}
+
+/* Header Styling */
+header {
+    width: 100%;
+    position: absolute; /* Position over the hero background */
+    top: 0;
+    left: 0;
+    z-index: 100; /* Ensure it's above other content */
+    padding: 20px 0;
+}
+
+.header-container {
+    max-width: 1200px; /* Adjust as per Figma's content width */
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 35px; /* Adjust logo size based on Figma */
+    width: auto;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 40px; /* Space between nav items */
+}
+
+nav ul li a {
+    color: var(--header-link-color);
+    text-decoration: none;
+    font-weight: 600; /* Semi-bold */
+    font-size: 14px;
+    transition: opacity 0.3s ease;
+    text-transform: uppercase;
+}
+
+nav ul li a:hover {
+    opacity: 0.8;
+}
+
+/* Hero Section (First Section of the Page) */
+.hero-section {
+    min-height: 100vh; /* Make it take full viewport height */
+    position: relative; /* For positioning child elements */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically initially */
+    align-items: center; /* Center content horizontally */
+    text-align: center;
+    padding-bottom: 200px; /* Space for the profile cards at the bottom */
+}
+
+.hero-background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('assets/images/hero_background.jpg') no-repeat center center/cover;
+    /* Replace 'hero_background.jpg' with your actual background image name */
+    z-index: -1; /* Place behind text content */
+}
+
+.hero-content {
+    max-width: 800px; /* Adjust based on Figma content width */
+    padding: 0 20px;
+    margin-bottom: 50px; /* Space before "Learn from the pros" line */
+    z-index: 1; /* Ensure content is above overlay */
+}
+
+.hero-section h1 {
+    /* Use 'Spin Cycle OT' if available and imported, otherwise fallback */
+    font-family: 'Spin Cycle OT', 'Source Sans Pro', sans-serif;
+    font-size: 100px; /* Large font size for "Get schooled" */
+    font-weight: bold; /* Visually bold */
+    margin-bottom: 20px;
+    line-height: 1; /* Tight line height */
+    color: var(--primary-text-color);
+    text-transform: uppercase; /* Looks uppercase in Figma */
+}
+
+.hero-smiles-options {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    gap: 30px; /* Space between SMILES GRIN LAUGH */
+}
+
+.hero-smiles-options span {
+    color: var(--primary-text-color);
+    font-size: 16px;
+    font-weight: 700; /* Bold */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.register-button {
+    background-color: var(--secondary-purple);
+    color: var(--primary-text-color);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px; /* Rounded button */
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.register-button:hover {
+    background-color: #A94FD9; /* Slightly darker purple on hover (inferred) */
+    transform: translateY(-2px);
+}
+
+.learn-pros-text {
+    color: var(--secondary-purple);
+    font-size: 30px;
+    font-weight: 300; /* Light font weight */
+    margin-top: 50px;
+    position: absolute; /* Position relative to .hero-section */
+    bottom: 200px; /* Position above profiles */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1; /* Ensure text is above overlay */
+}
+
+/* Hero Profiles Section (Bottom of the first section) */
+.hero-profiles {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--dark-bg-color); /* Dark background for this section */
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
+    gap: 30px; /* Space between cards */
+    z-index: 2; /* Ensure profiles are above other content and background */
+}
+
+.profile-card {
+    text-align: center;
+    flex: 0 0 220px; /* Fixed width for cards, prevent shrinking */
+    max-width: 25%; /* Limit width for 4-column layout */
+    display: flex; /* Use flexbox for vertical alignment within card */
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-card img {
+    width: 150px; /* Adjust image size */
+    height: 150px; /* Adjust image size */
+    border-radius: 50%; /* Make images circular */
+    object-fit: cover; /* Ensure images fill the circle */
+    margin-bottom: 15px;
+}
+
+.profile-card h3 {
+    font-size: 18px;
+    font-weight: 700; /* Bold */
+    color: var(--primary-text-color);
+    margin-bottom: 5px;
+}
+
+.profile-card .sub-text {
+    font-size: 14px;
+    color: var(--light-grey-text);
+    line-height: 1.4;
+}
+
+/* Footer Styling (minimal as per Figma image, if content exists) */
+footer {
+    background-color: var(--dark-bg-color); /* Dark background for footer */
+    color: var(--light-grey-text);
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    position: relative; /* If other content comes below the first section */
+    z-index: 0;
+}
+
+/* Basic Responsiveness (inferred from common design patterns) */
+@media (max-width: 992px) {
+    .hero-section h1 {
+        font-size: 80px;
+    }
+    .hero-profiles {
+        padding: 40px 15px;
+        gap: 20px;
+    }
+    .profile-card {
+        flex: 0 0 45%; /* Two columns on medium screens */
+        max-width: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        padding-top: 10px;
+    }
+    .logo {
+        margin-bottom: 15px;
+    }
+    nav ul li {
+        margin: 0 15px;
+    }
+    .hero-section h1 {
+        font-size: 55px; /* Smaller title on smaller screens */
+    }
+    .hero-smiles-options span {
+        font-size: 14px;
+        margin: 0 10px;
+    }
+    .learn-pros-text {
+        font-size: 24px;
+        bottom: 150px; /* Adjust position for smaller screens */
+    }
+    .hero-profiles {
+        padding: 30px 10px;
+        flex-direction: column; /* Stack profiles vertically */
+        align-items: center;
+        gap: 20px;
+    }
+    .profile-card {
+        max-width: 80%; /* Allow cards to take more width when stacked */
+        flex: 0 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section h1 {
+        font-size: 40px;
+    }
+    .hero-smiles-options {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .hero-smiles-options span {
+        margin: 0;
+    }
+    .register-button {
+        padding: 12px 25px;
+        font-size: 12px;
+    }
+    .profile-card img {
+        width: 100px;
+        height: 100px;
+    }
+    .profile-card h3 {
+        font-size: 16px;
+    }
+    .profile-card .sub-text {
+        font-size: 12px;
+    }
+}
+
+/* Custom Fonts */
+/* If you have the Spin Cycle OT font files, place them in css_advanced/assets/fonts/ */
+/* and uncomment/adjust the @font-face rule. */
+/* @font-face {
+    font-family: 'Spin Cycle OT';
+    src: url('assets/fonts/Spin-Cycle-OT.woff2') format('woff2'),
+         url('assets/fonts/Spin-Cycle-OT.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+} */
+
+/* Variables for easy color management (replace with exact Figma colors) */
+:root {
+    --primary-text-color: #FFFFFF;
+    --secondary-purple: #D368FF; /* For button and "Learn from the pros" */
+    --dark-bg-color: #000000; /* For profile section background */
+    --light-grey-text: rgba(255, 255, 255, 0.7); /* For smaller text in profiles */
+    --header-link-color: #FFFFFF;
+}
+
+/* Universal box-sizing and basic reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: var(--primary-text-color);
+    line-height: 1.6;
+    background-color: var(--dark-bg-color); /* Main background color */
+}
+
+/* Header Styling */
+header {
+    width: 100%;
+    position: absolute; /* Position over the hero background */
+    top: 0;
+    left: 0;
+    z-index: 100; /* Ensure it's above other content */
+    padding: 20px 0;
+}
+
+.header-container {
+    max-width: 1200px; /* Adjust as per Figma's content width */
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 35px; /* Adjust logo size based on Figma */
+    width: auto;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 40px; /* Space between nav items */
+}
+
+nav ul li a {
+    color: var(--header-link-color);
+    text-decoration: none;
+    font-weight: 600; /* Semi-bold */
+    font-size: 14px;
+    transition: opacity 0.3s ease;
+    text-transform: uppercase;
+}
+
+nav ul li a:hover {
+    opacity: 0.8;
+}
+
+/* Hero Section (First Section of the Page) */
+.hero-section {
+    min-height: 100vh; /* Make it take full viewport height */
+    position: relative; /* For positioning child elements */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically initially */
+    align-items: center; /* Center content horizontally */
+    text-align: center;
+    padding-bottom: 200px; /* Space for the profile cards at the bottom */
+}
+
+.hero-background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('assets/images/hero_background.jpg') no-repeat center center/cover;
+    /* Replace 'hero_background.jpg' with your actual background image name */
+    z-index: -1; /* Place behind text content */
+}
+
+.hero-content {
+    max-width: 800px; /* Adjust based on Figma content width */
+    padding: 0 20px;
+    margin-bottom: 50px; /* Space before "Learn from the pros" line */
+    z-index: 1; /* Ensure content is above overlay */
+}
+
+.hero-section h1 {
+    /* Use 'Spin Cycle OT' if available and imported, otherwise fallback */
+    font-family: 'Spin Cycle OT', 'Source Sans Pro', sans-serif;
+    font-size: 100px; /* Large font size for "Get schooled" */
+    font-weight: bold; /* Visually bold */
+    margin-bottom: 20px;
+    line-height: 1; /* Tight line height */
+    color: var(--primary-text-color);
+    text-transform: uppercase; /* Looks uppercase in Figma */
+}
+
+.hero-smiles-options {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    gap: 30px; /* Space between SMILES GRIN LAUGH */
+}
+
+.hero-smiles-options span {
+    color: var(--primary-text-color);
+    font-size: 16px;
+    font-weight: 700; /* Bold */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.register-button {
+    background-color: var(--secondary-purple);
+    color: var(--primary-text-color);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px; /* Rounded button */
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.register-button:hover {
+    background-color: #A94FD9; /* Slightly darker purple on hover (inferred) */
+    transform: translateY(-2px);
+}
+
+.learn-pros-text {
+    color: var(--secondary-purple);
+    font-size: 30px;
+    font-weight: 300; /* Light font weight */
+    margin-top: 50px;
+    position: absolute; /* Position relative to .hero-section */
+    bottom: 200px; /* Position above profiles */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1; /* Ensure text is above overlay */
+}
+
+/* Hero Profiles Section (Bottom of the first section) */
+.hero-profiles {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--dark-bg-color); /* Dark background for this section */
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
+    gap: 30px; /* Space between cards */
+    z-index: 2; /* Ensure profiles are above other content and background */
+}
+
+.profile-card {
+    text-align: center;
+    flex: 0 0 220px; /* Fixed width for cards, prevent shrinking */
+    max-width: 25%; /* Limit width for 4-column layout */
+    display: flex; /* Use flexbox for vertical alignment within card */
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-card img {
+    width: 150px; /* Adjust image size */
+    height: 150px; /* Adjust image size */
+    border-radius: 50%; /* Make images circular */
+    object-fit: cover; /* Ensure images fill the circle */
+    margin-bottom: 15px;
+}
+
+.profile-card h3 {
+    font-size: 18px;
+    font-weight: 700; /* Bold */
+    color: var(--primary-text-color);
+    margin-bottom: 5px;
+}
+
+.profile-card .sub-text {
+    font-size: 14px;
+    color: var(--light-grey-text);
+    line-height: 1.4;
+}
+
+/* Footer Styling (minimal as per Figma image, if content exists) */
+footer {
+    background-color: var(--dark-bg-color); /* Dark background for footer */
+    color: var(--light-grey-text);
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    position: relative; /* If other content comes below the first section */
+    z-index: 0;
+}
+
+/* Basic Responsiveness (inferred from common design patterns) */
+@media (max-width: 992px) {
+    .hero-section h1 {
+        font-size: 80px;
+    }
+    .hero-profiles {
+        padding: 40px 15px;
+        gap: 20px;
+    }
+    .profile-card {
+        flex: 0 0 45%; /* Two columns on medium screens */
+        max-width: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        padding-top: 10px;
+    }
+    .logo {
+        margin-bottom: 15px;
+    }
+    nav ul li {
+        margin: 0 15px;
+    }
+    .hero-section h1 {
+        font-size: 55px; /* Smaller title on smaller screens */
+    }
+    .hero-smiles-options span {
+        font-size: 14px;
+        margin: 0 10px;
+    }
+    .learn-pros-text {
+        font-size: 24px;
+        bottom: 150px; /* Adjust position for smaller screens */
+    }
+    .hero-profiles {
+        padding: 30px 10px;
+        flex-direction: column; /* Stack profiles vertically */
+        align-items: center;
+        gap: 20px;
+    }
+    .profile-card {
+        max-width: 80%; /* Allow cards to take more width when stacked */
+        flex: 0 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section h1 {
+        font-size: 40px;
+    }
+    .hero-smiles-options {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .hero-smiles-options span {
+        margin: 0;
+    }
+    .register-button {
+        padding: 12px 25px;
+        font-size: 12px;
+    }
+    .profile-card img {
+        width: 100px;
+        height: 100px;
+    }
+    .profile-card h3 {
+        font-size: 16px;
+    }
+    .profile-card .sub-text {
+        font-size: 12px;
+    }
+}
