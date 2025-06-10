@@ -1,0 +1,30 @@
+/* styles.css */
+
+/* Positioning for body and main containers */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure body takes full viewport height for column layout */
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    flex: auto; /* Allows main to grow and shrink as needed */
+}
+
+/* Flex distribution and scrolling for article and aside */
+article {
+    flex: 2; /* Takes 2/3 of the available space in main */
+    overflow-y: auto; /* Enables vertical scrolling if content overflows */
+    padding: 20px; /* Add padding to prevent content from touching edges */
+    box-sizing: border-box; /* Include padding in the element's total width and height */
+}
+
+aside {
+    flex: 1; /* Takes 1/3 of the available space in main */
+    overflow-y: auto; /* Enables vertical scrolling if content overflows */
+    padding: 20px; /* Add padding for content */
+    box-sizing: border-box; /* Include padding in the element's total width and height */
+    background-color: #e0e0e0; /* Optional: differentiate aside visually */
+}
