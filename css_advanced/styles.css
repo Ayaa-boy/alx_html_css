@@ -17,6 +17,9 @@
     --light-grey-text: rgba(255, 255, 255, 0.7); /* For smaller text in profiles */
     --header-link-color: #FFFFFF;
     --quote-section-bg: #8701B0; /* Inferred purple from f2.jpg */
+    --main-body-bg: #FFFFFF; /* White background for the tutorials section */
+    --dark-font-color: #000000; /* For black text on white background */
+    --light-description-color: #8D8D8D; /* Light grey for video description */
 }
 
 /* Universal box-sizing and basic reset */
@@ -36,18 +39,18 @@ body {
     background-color: var(--dark-bg-color); /* Main background color */
 }
 
-/* Header Styling */
+/* Header Styling (existing styles) */
 header {
     width: 100%;
-    position: absolute; /* Position over the hero background */
+    position: absolute;
     top: 0;
     left: 0;
-    z-index: 100; /* Ensure it's above other content */
+    z-index: 100;
     padding: 20px 0;
 }
 
 .header-container {
-    max-width: 1200px; /* Adjust as per Figma's content width */
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
@@ -56,7 +59,7 @@ header {
 }
 
 .logo img {
-    height: 35px; /* Adjust logo size based on Figma */
+    height: 35px;
     width: auto;
 }
 
@@ -66,13 +69,13 @@ nav ul {
 }
 
 nav ul li {
-    margin-left: 40px; /* Space between nav items */
+    margin-left: 40px;
 }
 
 nav ul li a {
     color: var(--header-link-color);
     text-decoration: none;
-    font-weight: 600; /* Semi-bold */
+    font-weight: 600;
     font-size: 14px;
     transition: opacity 0.3s ease;
     text-transform: uppercase;
@@ -82,16 +85,16 @@ nav ul li a:hover {
     opacity: 0.8;
 }
 
-/* Hero Section (First Section of the Page) */
+/* Hero Section (First Section of the Page) (existing styles) */
 .hero-section {
-    min-height: 100vh; /* Make it take full viewport height */
-    position: relative; /* For positioning child elements */
+    min-height: 100vh;
+    position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center content vertically initially */
-    align-items: center; /* Center content horizontally */
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    padding-bottom: 200px; /* Space for the profile cards at the bottom */
+    padding-bottom: 200px;
 }
 
 .hero-background-overlay {
@@ -101,39 +104,37 @@ nav ul li a:hover {
     width: 100%;
     height: 100%;
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('assets/images/hero_background.jpg') no-repeat center center/cover;
-    /* Replace 'hero_background.jpg' with your actual background image name */
-    z-index: -1; /* Place behind text content */
+    z-index: -1;
 }
 
 .hero-content {
-    max-width: 800px; /* Adjust based on Figma content width */
+    max-width: 800px;
     padding: 0 20px;
-    margin-bottom: 50px; /* Space before "Learn from the pros" line */
-    z-index: 1; /* Ensure content is above overlay */
+    margin-bottom: 50px;
+    z-index: 1;
 }
 
 .hero-section h1 {
-    /* Use 'Spin Cycle OT' if available and imported, otherwise fallback */
     font-family: 'Spin Cycle OT', 'Source Sans Pro', sans-serif;
-    font-size: 100px; /* Large font size for "Get schooled" */
-    font-weight: bold; /* Visually bold */
+    font-size: 100px;
+    font-weight: bold;
     margin-bottom: 20px;
-    line-height: 1; /* Tight line height */
+    line-height: 1;
     color: var(--primary-text-color);
-    text-transform: uppercase; /* Looks uppercase in Figma */
+    text-transform: uppercase;
 }
 
 .hero-smiles-options {
     display: flex;
     justify-content: center;
     margin-bottom: 30px;
-    gap: 30px; /* Space between SMILES GRIN LAUGH */
+    gap: 30px;
 }
 
 .hero-smiles-options span {
     color: var(--primary-text-color);
     font-size: 16px;
-    font-weight: 700; /* Bold */
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
@@ -143,7 +144,7 @@ nav ul li a:hover {
     color: var(--primary-text-color);
     border: none;
     padding: 15px 30px;
-    border-radius: 25px; /* Rounded button */
+    border-radius: 25px;
     font-size: 14px;
     font-weight: 700;
     text-transform: uppercase;
@@ -152,56 +153,56 @@ nav ul li a:hover {
 }
 
 .register-button:hover {
-    background-color: #A94FD9; /* Slightly darker purple on hover (inferred) */
+    background-color: #A94FD9;
     transform: translateY(-2px);
 }
 
 .learn-pros-text {
     color: var(--secondary-purple);
     font-size: 30px;
-    font-weight: 300; /* Light font weight */
+    font-weight: 300;
     margin-top: 50px;
-    position: absolute; /* Position relative to .hero-section */
-    bottom: 200px; /* Position above profiles */
+    position: absolute;
+    bottom: 200px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 1; /* Ensure text is above overlay */
+    z-index: 1;
 }
 
-/* Hero Profiles Section (Bottom of the first section) */
+/* Hero Profiles Section (Bottom of the first section) (existing styles) */
 .hero-profiles {
     position: absolute;
     bottom: 0;
     width: 100%;
-    background-color: var(--dark-bg-color); /* Dark background for this section */
+    background-color: var(--dark-bg-color);
     padding: 50px 20px;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
-    gap: 30px; /* Space between cards */
-    z-index: 2; /* Ensure profiles are above other content and background */
+    flex-wrap: wrap;
+    gap: 30px;
+    z-index: 2;
 }
 
 .profile-card {
     text-align: center;
-    flex: 0 0 220px; /* Fixed width for cards, prevent shrinking */
-    max-width: 25%; /* Limit width for 4-column layout */
-    display: flex; /* Use flexbox for vertical alignment within card */
+    flex: 0 0 220px;
+    max-width: 25%;
+    display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .profile-card img {
-    width: 150px; /* Adjust image size */
-    height: 150px; /* Adjust image size */
-    border-radius: 50%; /* Make images circular */
-    object-fit: cover; /* Ensure images fill the circle */
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
     margin-bottom: 15px;
 }
 
 .profile-card h3 {
     font-size: 18px;
-    font-weight: 700; /* Bold */
+    font-weight: 700;
     color: var(--primary-text-color);
     margin-bottom: 5px;
 }
@@ -212,56 +213,204 @@ nav ul li a:hover {
     line-height: 1.4;
 }
 
-/* NEW: Quote Section Styling */
+/* Quote Section Styling (existing styles) */
 .quote-section {
-    background-color: var(--quote-section-bg); /* Purple background from f2.jpg */
-    padding: 100px 20px; /* Generous padding top/bottom */
+    background-color: var(--quote-section-bg);
+    padding: 100px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .quote-container {
-    max-width: 800px; /* Adjust to content width in Figma */
+    max-width: 800px;
     width: 100%;
     display: flex;
-    align-items: center; /* Vertically align image and text */
-    gap: 50px; /* Space between image and text */
+    align-items: center;
+    gap: 50px;
 }
 
 .quote-profile img {
-    width: 160px; /* Inferred image size from f2.jpg */
-    height: 160px; /* Inferred image size from f2.jpg */
-    border-radius: 50%; /* Circular image */
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
     object-fit: cover;
-    flex-shrink: 0; /* Prevent image from shrinking */
+    flex-shrink: 0;
 }
 
 .quote-content {
-    flex-grow: 1; /* Allow text content to take remaining space */
+    flex-grow: 1;
 }
 
 .quote-text {
-    font-size: 22px; /* Inferred font size from f2.jpg */
+    font-size: 22px;
     font-style: italic;
     color: var(--primary-text-color);
     margin-bottom: 15px;
 }
 
 .quote-author {
-    font-size: 18px; /* Inferred font size from f2.jpg */
-    font-weight: 700; /* Bold */
+    font-size: 18px;
+    font-weight: 700;
     color: var(--primary-text-color);
     margin-bottom: 5px;
 }
 
 .quote-occupation {
-    font-size: 16px; /* Inferred font size from f2.jpg */
+    font-size: 16px;
     color: var(--primary-text-color);
-    opacity: 0.8; /* Slightly lighter than author name */
+    opacity: 0.8;
 }
 
-/* Basic Responsiveness (inferred from common design patterns) */
+/* NEW: Popular Tutorials Section Styling */
+.popular-tutorials-section {
+    background-color: var(--main-body-bg); /* White background */
+    padding: 80px 20px; /* Padding for the section */
+    text-align: center; /* Center the heading */
+}
+
+.section-header {
+    margin-bottom: 50px; /* Space below the heading */
+}
+
+.section-header h2 {
+    font-size: 32px; /* Inferred size from f3.jpg */
+    font-weight: 300; /* Light weight */
+    color: var(--dark-font-color); /* Black text */
+}
+
+.purple-text {
+    color: var(--secondary-purple); /* Reuse purple variable */
+    font-weight: 700; /* Bold for "popular" */
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive 4-column grid */
+    gap: 30px; /* Space between video cards */
+    max-width: 1200px; /* Align with other content containers */
+    margin: 0 auto; /* Center the grid */
+}
+
+.video-card {
+    background-color: #FFFFFF; /* White card background */
+    border-radius: 8px; /* Slightly rounded corners */
+    overflow: hidden; /* Ensures image corners are rounded */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow (inferred from f3.jpg) */
+    text-align: left; /* Align text within card to left */
+    display: flex;
+    flex-direction: column;
+}
+
+.thumbnail-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 aspect ratio (height / width * 100%) */
+    overflow: hidden;
+}
+
+.thumbnail-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block; /* Remove extra space below image */
+}
+
+.thumbnail-container img:not(.play-button) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px; /* Inferred size of play button from f3.jpg */
+    height: 60px;
+    cursor: pointer;
+    z-index: 5;
+    transition: transform 0.2s ease;
+}
+
+.play-button:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.video-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--dark-font-color);
+    margin: 20px 20px 10px; /* Padding for content inside card */
+}
+
+.video-description {
+    font-size: 14px;
+    color: var(--light-description-color);
+    margin: 0 20px 15px;
+    line-height: 1.5;
+}
+
+.author-info {
+    display: flex;
+    align-items: center;
+    margin: 0 20px 15px;
+}
+
+.author-info img {
+    width: 30px; /* Small author profile pic */
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.author-name {
+    font-size: 14px;
+    font-weight: 600; /* Semi-bold */
+    color: var(--secondary-purple); /* Purple text */
+}
+
+.rating-duration {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 20px 20px; /* Padding for content inside card */
+}
+
+.stars img {
+    width: 15px; /* Size of star icons */
+    height: 15px;
+    margin-right: 2px;
+}
+
+.duration {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--secondary-purple);
+}
+
+/* Footer Styling (existing styles) */
+footer {
+    background-color: var(--dark-bg-color);
+    color: var(--light-grey-text);
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    position: relative;
+    z-index: 0;
+}
+
+/* Basic Responsiveness (existing styles + updates for new section) */
 @media (max-width: 992px) {
     .hero-section h1 {
         font-size: 80px;
@@ -271,19 +420,18 @@ nav ul li a:hover {
         gap: 20px;
     }
     .profile-card {
-        flex: 0 0 45%; /* Two columns on medium screens */
+        flex: 0 0 45%;
         max-width: 45%;
     }
-    /* Quote section responsiveness */
     .quote-container {
-        flex-direction: column; /* Stack image and text vertically */
+        flex-direction: column;
         text-align: center;
     }
     .quote-profile {
-        margin-bottom: 30px; /* Space between image and text */
+        margin-bottom: 30px;
     }
     .quote-profile img {
-        width: 120px; /* Smaller image on smaller screens */
+        width: 120px;
         height: 120px;
     }
     .quote-text {
@@ -297,6 +445,13 @@ nav ul li a:hover {
     }
     .quote-section {
         padding: 60px 20px;
+    }
+    /* Video grid on medium screens */
+    .video-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Allow 2 columns */
+    }
+    .section-header h2 {
+        font-size: 28px;
     }
 }
 
@@ -312,7 +467,7 @@ nav ul li a:hover {
         margin: 0 15px;
     }
     .hero-section h1 {
-        font-size: 55px; /* Smaller title on smaller screens */
+        font-size: 55px;
     }
     .hero-smiles-options span {
         font-size: 14px;
@@ -320,7 +475,7 @@ nav ul li a:hover {
     }
     .learn-pros-text {
         font-size: 24px;
-        bottom: 150px; /* Adjust position for smaller screens */
+        bottom: 150px;
     }
     .hero-profiles {
         padding: 30px 10px;
@@ -331,6 +486,17 @@ nav ul li a:hover {
     .profile-card {
         max-width: 80%;
         flex: 0 0 auto;
+    }
+    /* Video grid on small screens */
+    .video-grid {
+        grid-template-columns: 1fr; /* Single column */
+        padding: 0 20px;
+    }
+    .section-header h2 {
+        font-size: 24px;
+    }
+    .popular-tutorials-section {
+        padding: 50px 20px;
     }
 }
 
@@ -371,4 +537,154 @@ nav ul li a:hover {
     .quote-occupation {
         font-size: 12px;
     }
+}
+
+/* ... existing CSS code above ... */
+
+/* NEW: Free Membership Section Styling */
+.membership-section {
+    background-color: #261b36; /* Dark background color from Figma */
+    padding: 80px 20px;
+    text-align: center;
+    color: var(--primary-text-color); /* White text for titles */
+}
+
+.membership-section h2 {
+    font-size: 32px;
+    font-weight: 300;
+    color: var(--primary-text-color); /* White text */
+    margin-bottom: 70px; /* Space below the heading */
+}
+
+.membership-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px; /* Space between membership cards */
+    max-width: 1200px;
+    margin: 0 auto 50px; /* Center the cards and add space below */
+}
+
+.membership-card {
+    flex: 0 0 220px; /* Fixed width for the card */
+    max-width: 25%; /* Max width for responsiveness */
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.membership-card img {
+    width: 60px; /* Size for the smiley icon */
+    height: 60px;
+    margin-bottom: 20px;
+}
+
+.membership-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary-text-color);
+    margin-bottom: 10px;
+}
+
+.membership-card p {
+    font-size: 14px;
+    color: var(--primary-text-color); /* Text color from Figma */
+    opacity: 0.8;
+    line-height: 1.5;
+}
+
+/* Reusing the register button style */
+.membership-section .register-button {
+    margin-top: 30px; /* Space above the button */
+}
+
+/* Responsive adjustments for membership section */
+@media (max-width: 992px) {
+    .membership-card {
+        flex: 0 0 45%; /* Two cards per row on medium screens */
+        max-width: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    .membership-section h2 {
+        font-size: 28px;
+        margin-bottom: 50px;
+    }
+    .membership-card {
+        flex: 0 0 80%; /* Single column on small screens */
+        max-width: 80%;
+    }
+    .membership-section {
+        padding: 60px 20px;
+    }
+}
+
+.membership-section {
+    background-color: #0F172A; /* Dark navy background */
+    padding: 100px 20px;
+    text-align: center;
+    color: var(--primary-text-color);
+}
+
+.membership-section h2 {
+    font-size: 32px;
+    font-weight: 300;
+    margin-bottom: 60px;
+    color: var(--primary-text-color);
+}
+
+.membership-section .purple-text {
+    color: var(--secondary-purple);
+    font-weight: 700;
+}
+
+.membership-benefits {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+}
+
+.benefit {
+    max-width: 200px;
+}
+
+.benefit img {
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.benefit h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.benefit p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--light-grey-text);
+}
+
+.register-button.center {
+    display: inline-block;
+    padding: 15px 40px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 700;
+    background-color: var(--secondary-purple);
+    color: var(--primary-text-color);
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.register-button.center:hover {
+    background-color: #A94FD9;
+    transform: translateY(-2px);
 }
