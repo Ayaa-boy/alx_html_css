@@ -1,0 +1,234 @@
+    /* Basic CSS Reset */
+    *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* CSS Variables for colors, fonts, etc. */
+    :root {
+        --primary-text-color: #FFFFFF;
+        --accent-color: #FF6565; /* For button background, link hover */
+        --dark-background-color: #071629; /* Background color for hero/footer */
+        --light-grey-text: rgba(255, 255, 255, 0.7); /* For less prominent text */
+        --button-hover-opacity: 0.9;
+        --max-content-width: 1000px;
+    }
+
+    body {
+        font-family: 'Source Sans Pro', sans-serif; /* Default font */
+        color: var(--primary-text-color);
+        line-height: 1.6;
+        background-color: var(--dark-background-color); /* Fallback background */
+    }
+
+    /* Header/Hero Section Styling */
+    .hero-section {
+        position: relative; /* For positioning overlay and content */
+        min-height: 100vh; /* Full viewport height */
+        background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('assets/images/hero-background.jpg') no-repeat center center/cover;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start; /* Align header content to top */
+        padding: 20px; /* Padding for the entire hero section */
+    }
+
+    /* Header Navigation and Logo */
+    .header-content-wrapper {
+        width: 100%;
+        max-width: var(--max-content-width); /* Align with content width */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0; /* Padding for header content within wrapper */
+        position: relative; /* For hamburger positioning */
+        z-index: 10; /* Ensure header is above other content */
+    }
+
+    .header-logo img {
+        height: 35px; /* Adjust as per Figma */
+        width: auto;
+    }
+
+    .main-nav ul {
+        list-style: none;
+        display: flex;
+    }
+
+    .main-nav li {
+        margin-left: 40px; /* Space between nav items */
+    }
+
+    .main-nav a {
+        color: var(--primary-text-color);
+        text-decoration: none;
+        font-weight: 700; /* Bold */
+        font-size: 12px;
+        text-transform: uppercase;
+        transition: color 0.3s ease;
+    }
+
+    .main-nav a:hover,
+    .main-nav a:active {
+        color: var(--accent-color); /* Link hover/active color */
+    }
+
+    /* Hamburger Menu (Hidden by default on desktop) */
+    .menu-checkbox {
+        display: none; /* Hide the checkbox input */
+    }
+
+    .hamburger-menu {
+        display: none; /* Hide hamburger on desktop */
+        flex-direction: column;
+        justify-content: space-between;
+        width: 25px;
+        height: 20px;
+        cursor: pointer;
+        position: absolute; /* Position relative to .header-content-wrapper */
+        left: 20px; /* Adjust based on Figma for mobile */
+        z-index: 20; /* Ensure it's on top */
+    }
+
+    .hamburger-menu .line {
+        width: 100%;
+        height: 2px;
+        background-color: var(--primary-text-color);
+        transition: all 0.3s ease;
+    }
+
+    /* Hero Main Content */
+    .hero-main-content {
+        flex-grow: 1; /* Allows content to push nav/footer away */
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Center content vertically */
+        align-items: center; /* Center content horizontally */
+        text-align: center;
+        max-width: 600px; /* Constrain width for main hero text */
+        padding: 40px 20px;
+    }
+
+    .hero-title {
+        font-size: 44px; /* Large font size */
+        font-weight: 700; /* Bold */
+        margin-bottom: 20px;
+        line-height: 1.2;
+    }
+
+    .hero-subtitle {
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 30px;
+    }
+
+    .call-to-action-btn {
+        background-color: var(--accent-color); /* Red accent color */
+        color: var(--primary-text-color);
+        border: none;
+        padding: 12px 25px;
+        border-radius: 20px; /* Rounded button */
+        font-size: 14px;
+        font-weight: 600;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: opacity 0.3s ease;
+        margin-bottom: 40px; /* Space below button */
+    }
+
+    .call-to-action-btn:hover,
+    .call-to-action-btn:active {
+        opacity: var(--button-hover-opacity); /* Button hover/active opacity */
+    }
+
+    .hero-description {
+        font-size: 16px;
+        color: var(--light-grey-text); /* Lighter grey text */
+        max-width: 600px; /* Match hero content width */
+        margin-bottom: 50px; /* Space at the bottom of the hero description */
+    }
+
+    /* Mobile Responsiveness (480px or less) */
+    @media (max-width: 480px) {
+        .header-content-wrapper {
+            flex-direction: row; /* Keep logo and hamburger on same line */
+            justify-content: flex-start; /* Logo and hamburger at start */
+            padding: 20px 0; /* Adjust padding */
+        }
+
+        .header-logo {
+            position: absolute; /* Center logo independently */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 15; /* Ensure logo is above nav but below hamburger */
+        }
+
+        .hamburger-menu {
+            display: flex; /* Show hamburger menu */
+        }
+
+        .main-nav {
+            display: none; /* Hide desktop nav by default */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--dark-background-color); /* Full screen overlay */
+            padding-top: 80px; /* Space for logo/hamburger */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 5; /* Below hamburger, above hero content */
+        }
+
+        .main-nav ul {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .main-nav li {
+            margin: 20px 0; /* Vertical spacing for mobile nav items */
+        }
+
+        .main-nav a {
+            font-size: 18px; /* Larger font for mobile nav */
+        }
+
+        /* Show mobile nav when checkbox is checked */
+        .menu-checkbox:checked ~ .main-nav {
+            display: flex;
+        }
+
+        /* Animate hamburger icon when menu is open */
+        .menu-checkbox:checked + .hamburger-menu .line:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+        .menu-checkbox:checked + .hamburger-menu .line:nth-child(2) {
+            opacity: 0;
+        }
+        .menu-checkbox:checked + .hamburger-menu .line:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+
+        .hero-title {
+            font-size: 32px; /* Smaller title on mobile */
+        }
+
+        .hero-subtitle {
+            font-size: 14px;
+        }
+
+        .hero-description {
+            font-size: 14px;
+            text-align: center;
+            padding: 0 15px; /* Adjust padding for mobile description */
+        }
+
+        .call-to-action-btn {
+            font-size: 12px;
+            padding: 10px 20px;
+        }
+    }
+    
