@@ -1,0 +1,517 @@
+/* Basic CSS Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* CSS Variables for colors, fonts, etc. */
+:root {
+    --primary-text-color: #FFFFFF;
+    --accent-color: #FF6565; /* For button background, link hover */
+    --dark-background-color: #071629; /* Background color for hero/footer */
+    --light-grey-text: rgba(255, 255, 255, 0.7); /* For less prominent text */
+    --button-hover-opacity: 0.9;
+    --max-content-width: 1000px;
+    --section-padding-vertical: 80px; /* Consistent vertical padding for sections */
+    --quote-background-color: #FF6565; /* From Figma, for quote section background */
+}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif; /* Default font */
+    color: var(--primary-text-color);
+    line-height: 1.6;
+    background-color: var(--dark-background-color); /* Fallback background */
+}
+
+/* Header/Hero Section Styling (from previous task) */
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('assets/images/headphones_hero_1.jpg') no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+}
+
+.header-content-wrapper {
+    width: 100%;
+    max-width: var(--max-content-width);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    position: relative;
+    z-index: 10;
+}
+
+.header-logo img {
+    height: 35px;
+    width: auto;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.main-nav li {
+    margin-left: 40px;
+}
+
+.main-nav a {
+    color: var(--primary-text-color);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.main-nav a:hover,
+.main-nav a:active {
+    color: var(--accent-color);
+}
+
+.menu-checkbox {
+    display: none;
+}
+
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+    position: absolute;
+    left: 20px;
+    z-index: 20;
+}
+
+.hamburger-menu .line {
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-text-color);
+    transition: all 0.3s ease;
+}
+
+.hero-main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: 600px;
+    padding: 40px 20px;
+}
+
+.hero-title {
+    font-size: 44px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.call-to-action-btn {
+    background-color: var(--accent-color);
+    color: var(--primary-text-color);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    margin-bottom: 40px;
+}
+
+.call-to-action-btn:hover,
+.call-to-action-btn:active {
+    opacity: var(--button-hover-opacity);
+}
+
+.hero-description {
+    font-size: 16px;
+    color: var(--light-grey-text);
+    max-width: 600px;
+    margin-bottom: 50px;
+}
+
+/* What we do... Section Styling (from previous task) */
+.what-we-do-section {
+    background-color: var(--dark-background-color);
+    padding: var(--section-padding-vertical) 20px;
+    text-align: center;
+}
+
+.section-content-wrapper {
+    max-width: var(--max-content-width); /* Consistent max-width for content */
+    margin: 0 auto;
+    padding: 0 20px; /* Horizontal padding for content inside wrapper */
+}
+
+.section-title {
+    font-family: 'Spin Cycle OT', 'Source Sans Pro', sans-serif; /* Use custom font if available */
+    font-size: 32px; /* Inferred size from Figma */
+    font-weight: 700; /* Bold */
+    color: var(--primary-text-color);
+    margin-bottom: 25px;
+}
+
+.section-description {
+    font-size: 16px;
+    color: var(--light-grey-text);
+    max-width: 700px; /* Constrain width for description text */
+    margin: 0 auto 60px; /* Center and add space below */
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid for 4 items */
+    gap: 40px 20px; /* Vertical and horizontal gap between service items */
+    justify-items: center; /* Center items within their grid cells */
+}
+
+.service-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 250px; /* Max width for individual service item */
+}
+
+.service-item .holberton_school-icon {
+    font-size: 90px; /* Large size for the icons */
+    color: var(--accent-color); /* Red accent color for icons */
+    margin-bottom: 20px;
+}
+
+.service-item h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary-text-color);
+    margin-bottom: 15px;
+}
+
+.service-item p {
+    font-size: 14px;
+    color: var(--light-grey-text);
+    line-height: 1.5;
+}
+
+/* Our results Section Styling */
+.our-results-section {
+    background-color: var(--accent-color); /* Red background based on Figma */
+    padding: var(--section-padding-vertical) 20px;
+    text-align: center;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Similar responsive grid as services */
+    gap: 40px 20px; /* Vertical and horizontal gap */
+    justify-items: center;
+}
+
+.result-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 250px; /* Consistent item width */
+}
+
+.result-item .holberton_school-icon {
+    font-size: 90px; /* Large size for the star icons */
+    color: var(--primary-text-color); /* White color for icons on red background */
+    margin-bottom: 20px;
+}
+
+.result-item .result-value {
+    font-size: 40px; /* Very large font for the value */
+    font-weight: 700; /* Bold */
+    color: var(--primary-text-color); /* White text */
+    margin-bottom: 10px;
+}
+
+.result-item .result-description {
+    font-size: 14px;
+    color: var(--primary-text-color); /* White text */
+    line-height: 1.5;
+}
+
+
+/* Mobile Responsiveness (480px or less) */
+@media (max-width: 480px) {
+    /* Header/Hero Adjustments (from previous task) */
+    .header-content-wrapper {
+        flex-direction: row;
+        justify-content: flex-start;
+        padding: 20px 0;
+    }
+
+    .header-logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 15;
+    }
+
+    .hamburger-menu {
+        display: flex;
+    }
+
+    .main-nav {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--dark-background-color);
+        padding-top: 80px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 5;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-nav li {
+        margin: 20px 0;
+    }
+
+    .main-nav a {
+        font-size: 18px;
+    }
+
+    .menu-checkbox:checked ~ .main-nav {
+        display: flex;
+    }
+
+    .menu-checkbox:checked + .hamburger-menu .line:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    .menu-checkbox:checked + .hamburger-menu .line:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-checkbox:checked + .hamburger-menu .line:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+
+    .hero-title {
+        font-size: 32px;
+    }
+
+    .hero-subtitle {
+        font-size: 14px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+        text-align: center;
+        padding: 0 15px;
+    }
+
+    .call-to-action-btn {
+        font-size: 12px;
+        padding: 10px 20px;
+    }
+
+    /* What we do... Section Adjustments for Mobile (from previous task) */
+    .what-we-do-section {
+        padding: 60px 15px;
+    }
+
+    .section-title {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    .section-description {
+        font-size: 14px;
+        margin-bottom: 40px;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .service-item .holberton_school-icon {
+        font-size: 70px;
+    }
+
+    .service-item h3 {
+        font-size: 16px;
+    }
+
+    .service-item p {
+        font-size: 12px;
+    }
+
+    /* Our results Section Adjustments for Mobile */
+    .our-results-section {
+        padding: 60px 15px; /* Adjust padding for mobile */
+    }
+
+    .results-grid {
+        grid-template-columns: 1fr; /* Single column on mobile */
+        gap: 30px; /* Adjust gap for single column */
+    }
+
+    .result-item .holberton_school-icon {
+        font-size: 70px; /* Slightly smaller icons on mobile */
+    }
+
+    .result-item .result-value {
+        font-size: 30px; /* Smaller font on mobile */
+    }
+
+    .result-item .result-description {
+        font-size: 12px;
+    }
+}
+
+.our-results-section {
+    position: relative;
+    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+        url('assets/images/headphones_hero_2.jpg') no-repeat center center/cover;
+    padding: var(--section-padding-vertical) 20px;
+    text-align: center;
+    color: white;
+}
+
+.results-description {
+    font-size: 16px;
+    color: white;
+    max-width: 800px;
+    margin: 0 auto 60px;
+    line-height: 1.6;
+}
+
+.pentagon-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.pentagon {
+    width: 120px;
+    height: 120px;
+    background-color: #FF6565;
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.pentagon-value {
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+/* Optional responsive tweak */
+@media (max-width: 768px) {
+    .pentagon {
+        width: 100px;
+        height: 100px;
+        font-size: 12px;
+    }
+
+    .pentagon-value {
+        font-size: 18px;
+    }
+}
+
+.service-icon,
+.result-icon {
+  font-size: 90px;
+  color: var(--accent-color);
+  margin-bottom: 20px;
+}
+
+.our-results-section {
+  position: relative;
+  background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+    url('assets/images/headphones_hero_2.jpg') no-repeat center center/cover;
+  padding: var(--section-padding-vertical) 20px;
+  text-align: center;
+  color: white;
+}
+
+.results-description {
+  font-size: 16px;
+  color: white;
+  max-width: 800px;
+  margin: 0 auto 60px;
+  line-height: 1.6;
+}
+
+.pentagon-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.pentagon {
+  width: 120px;
+  height: 120px;
+  background-color: #FF6565;
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.pentagon:hover {
+  transform: scale(1.05);
+}
+
+.pentagon-value {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 768px) {
+  .pentagon {
+    width: 100px;
+    height: 100px;
+    font-size: 12px;
+  }
+
+  .pentagon-value {
+    font-size: 18px;
+  }
+}
